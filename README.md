@@ -44,10 +44,24 @@ We need to change our POST and GET handler functions to use this persistent data
 
 You interact with the persistent database a lot like the in memory database but the difference is that
  instead of using dots to get deeper into the datbase you use slashes. So if you accessed the chat messages in the
-  in memory database with "inMemoryDb.data.messages" you would get it with the persistent database using "persistentDb.getData('/data/messages')
+  in memory database with
+```
+inMemoryDb.data.messages
+```
+you would get it with the persistent database using
 
-Similarly, if wrote to the in memory db with "inMemoryDb.data.messages.push(newChatMessageObj)", you would accomplish the same thing
- with the persistent db by writing "persistentDb.pushToArray('/data/messages')".
+```
+persistentDb.getData('/data/messages')
+```
+
+Similarly, if wrote to the in memory db with
+```
+inMemoryDb.data.messages.push(newChatMessageObj)
+```
+you would accomplish the same thing with the persistent db by writing
+```
+persistentDb.pushToArray('/data/messages', newChatMessageObj)
+```
 
 If you want a better understanding of the persistent database, you can browse the documentation here: https://www.npmjs.com/package/node-json-db
 
@@ -57,4 +71,9 @@ Don't get worried if you find this part frustrating. Part of what we want you to
 ### Step 8: Deploy your server to the cloud
 I don't expect all of you to get this far, but if you do it's time to up your game by actually pushing to a server in the cloud.
 First, in a separate repo follow the tutorial specified here: https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
-Then, repeat those same steps with this repo, primarily the "heroku create" step and the "git push heroku master" step.
+By following this tutorial in an isolated environment, you will get a better feel for how heroku works. Then once you feel like you understand it
+well engouh, repeat those same steps with this chat repo, primarily the "heroku create" step and the "git push heroku master" step.
+
+### Step 9: Point your browser to the endpoints in the cloud
+We need to make the browser point to your newly deploy server, so update the $http endpoints to the locations that Heroku
+told you about after you deployed.

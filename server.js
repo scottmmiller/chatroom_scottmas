@@ -31,7 +31,6 @@ app.get('/get', function (request, response) {
     response.json({results: persistentDb.getData('/data/messages')});
 });
 
-
 app.post('/post', function(request, response){
     console.log("post request received with data:", request.body)
 
