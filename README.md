@@ -89,9 +89,9 @@ Don't get worried if you find this part frustrating. Part of what we want you to
 I don't expect all of you to get this far, but if you do it's time to up your game by actually pushing to a server in the cloud.
 First, in a separate repo follow the tutorial specified here: https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
 By following this tutorial in an isolated environment, you will get a better feel for how heroku works. Then once you feel like you understand it
-well engouh, repeat those same steps with this chat repo, primarily the "heroku create" step and the "git push heroku master" step.
+well enough, repeat those same steps with this chat repo, primarily the "heroku create" step and the "git push heroku master" step.
 
-### Step 10: Point your browser to your endpoint in the cloud. And have your friends.
+### Step 10: Point you and your friends browsers at the cloud endpoint
 We need to make the browser point to your newly deploy server, so update the $http endpoints from their local locations like http://localhost:3000
 to the url Heroku told you about after deploying. This will usually be something like https://thawing-ravine-9764.herokuapp.com or similarly named location.
 
