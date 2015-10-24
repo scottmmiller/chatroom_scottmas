@@ -2,7 +2,6 @@ var app = require('./expressServer.js')
 var getRandomString = require('./getRandomString.js');
 var persistentDb = require('./wrappedPersistentDb.js');
 
-
 var inMemoryDB = {
     "meta": {
         "engine": "inMemoryDatabase",
@@ -27,25 +26,16 @@ var inMemoryDB = {
 
 app.get('/get', function (request, response) {
     console.log("Get request received");
-    //response.json({whatever: 'you put here gets sent back to the browser'});
-    response.json({results: persistentDb.getData('/data/messages')});
+    response.json({whatever: 'you put here gets sent back to the browser'});
 });
 
 app.post('/post', function(request, response){
     console.log("post request received with data:", request.body)
 
-    persistentDb.pushToArray('/data/messages', {
-        text: request.body.text,
-        createdAt: Date.now(),
-        objectId: getRandomString()
-    });
-
-    //TODO: Save the data that the browser just sent. You can access the info that was sent down inside response.body
+    //TODO: Save the data that the browser just sent. You can access the info that was sent down inside request.body
     //TODO: Remember to save the time the chat message was created (using Date.now) and give the chat message an objectId using getRandomString()
 
-    //Here we send back a notification to the server telling the browser that the data was successfully saved. This isn't strictly
-    // necessary but it's best practice to give some sort of confirmation if things happened successfully
-    response.json({success: true});
+    response.json({success: true}); //this sends a simple notification to the browser that the info was saved succesfully.
 });
 
 app.startServer();
