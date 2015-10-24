@@ -12,10 +12,14 @@ app.use(function(request, response, next){
     next();
 });
 
+app.set('port', (process.env.PORT || 3000));
+
+
 app.startServer = function(){
-    app.listen(3000, function () {
-        console.log('Simple chatroom server listening at http://localhost:3000');
+    app.listen(app.get('port'), function() {
+        console.log('Node app is running at localhost:' + app.get('port'));
     });
+
 };
 
 
